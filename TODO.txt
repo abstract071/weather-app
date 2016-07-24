@@ -1,0 +1,7 @@
+Initialize git repo
+Format time (e.g. 17:2)
+Sun trajectory
+Rename restoreCollectionFromLocalStorage
+Settings controller - save options to Local Storage
+Settings controller - set update interval with current options
+Dashboard controller - save currentSlideIndex to Local Storage
