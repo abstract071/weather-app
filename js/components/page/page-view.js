@@ -30,7 +30,7 @@ define([
         },
         setTime: function () {
             var date = new Date();
-            $('.subheader .time').text(date.getHours() + ':' + date.getMinutes());
+            $('.subheader .time').text(date.toTimeString().slice(0,5));
         },
         initTimer: function () {
             var self = this;
@@ -47,9 +47,9 @@ define([
             this.setTime();
             return $(pageTpl).data('city-name');
         },
-        removeSlides: function(cityName) {
-            emitter.trigger('removeSlides', cityName);
-        },
+        //removeSlides: function(cityName) {
+        //    emitter.trigger('removeSlides', cityName);
+        //},
         renderTemperatureRanges: function() {
             emitter.trigger('renderTemperatureRanges');
         }

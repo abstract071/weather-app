@@ -31,12 +31,32 @@ define([
         initialize: function () {
             this.searchView = new SearchView({ rootHolder: '#wrapper', rootSearchResultHolder: '.cities' });
             this.weatherDataCollection = new WeatherDataCollection();
+            this.isSearching = false;
 
             emitter.on('searchStateHasChanged', _.debounce(this.getPlacesPredictions, 500), this);
             emitter.on('addCityToCollection', this.addCity, this);
             emitter.on('addCityData', this.saveToLocalStorage, this);
             emitter.on('transformDegrees', this.changeTypeOfDegrees, this);
             emitter.on('updateSlides', this.updateWeatherData, this);
+            //emitter.on('removeCityData', this.removeCityData, this);
+
+            var self = this;
+            $('.delete-btn').click(function() {
+                $('.cities input[type=checkbox]').each(function() {
+                    if ($(this).is(':checked')) {
+                        var cityName = $(this).parent().find('.city-text').text();
+                        self.weatherDataCollection.removeCityData(cityName);
+                        self.saveToLocalStorage();
+                        //emitter.trigger("removeCityData", cityName);
+                        //dashboardController.pageController.pageView.removeSlides(cityName);
+                    }
+                });
+                $('.cities').empty();
+
+                _(self.weatherDataCollection.weatherDataArray).forEach(function (cityData) {
+                    self.searchView.renderSearchResult(cityData, false, $('.degrees.active').data('identifier'));
+                });
+            });
 
             if (modernizr.localstorage && localStorage['citiesNames']) {
                 this.restoreCollectionFromLocalStorage();
@@ -44,6 +64,9 @@ define([
                 this.getDataFromGeolocation();
             }
         },
+        //removeCityData: function(cityName) {
+        //    this.weatherDataCollection.removeCityData(cityName);
+        //},
         getDataFromGeolocation: function () {
             var self = this;
 
@@ -89,7 +112,10 @@ define([
                 _(this.weatherDataCollection.weatherDataArray).forEach(function(cityData) {
                     self.searchView.renderSearchResult(cityData, false, self.getTypeOfDegrees());
                 });
+                this.isSearching = false;
+                return;
             }
+            this.isSearching = true;
             var predictionsDeferred = GoogleGeoService.getCitiesPredictions($input.val());
             predictionsDeferred.then(function(data) {
                 $('.cities').empty();
@@ -231,13 +257,15 @@ define([
                 }
 
                 self.weatherDataCollection.updateCollection(citiesData);
+                self.saveToLocalStorage(self.weatherDataCollection);
+
+                if (self.isSearching) return;
 
                 self.searchView.clearSearchResult();
+
                 _(self.weatherDataCollection.weatherDataArray).forEach(function (cityData) {
                     self.searchView.renderSearchResult(cityData, false, self.getTypeOfDegrees());
                 });
-
-                self.saveToLocalStorage(self.weatherDataCollection);
             });
         },
 

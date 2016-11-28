@@ -44,7 +44,7 @@ define([
         },
         removeCityData: function (cityName) {
             _.remove(this.weatherDataArray, function(cityData) { return cityData.cityName === cityName; });
-            //console.log(this.weatherDataArray);
+            emitter.trigger('removeSlides', cityName);
         },
         clearCollection: function () {
             this.weatherDataArray = [];

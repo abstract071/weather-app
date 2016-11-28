@@ -3,7 +3,7 @@
 <li data-city-name="<%= cityData.cityName/*.replace(/\s+/g, '')*/ %>">
     <div class="current-forecast">
         <header class="subheader">
-            <time class="time"><%- date.getHours() + ':' + date.getMinutes() %></time><span class="icon-refresh"></span>
+            <time class="time"><%- date.toTimeString().slice(0,5) %></time><span class="icon-refresh"></span>
             <h1><%- cityData.cityName.split(',')[0] %></h1>
             <h2>
                 <% var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']; %>
@@ -56,12 +56,12 @@
             <li>
                 <span class="icon icon-sunset"></span>
                 <% date = new Date(cityData.daily[0].sunsetTime) %>
-                <span class="info"><%- date.getHours() + ':' + date.getMinutes() %></span>
+                <span class="info"><%- date.toTimeString().slice(0,5) %></span>
             </li>
             <li>
                 <span class="icon icon-sunrise"></span>
                 <% date = new Date(cityData.daily[0].sunriseTime) %>
-                <span class="info"><%- date.getHours() + ':' + date.getMinutes() %></span>
+                <span class="info"><%- date.toTimeString().slice(0,5) %></span>
             </li>
         </ul>
     </div>

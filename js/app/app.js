@@ -21,24 +21,6 @@ define([
 
 
         $(document).ready(function() {
-
-            $('.delete-btn').click(function() {
-                $('.cities input[type=checkbox]').each(function(obj) {
-                    //console.log($(this));
-                    if ($(this).is(':checked')) {
-                        var cityName = $(this).parent().find('.city-text').text();
-                        searchController.weatherDataCollection.removeCityData(cityName);
-                        dashboardController.pageController.pageView.removeSlides(cityName);
-                    }
-                });
-                $('.cities').empty();
-
-                _(searchController.weatherDataCollection.weatherDataArray).forEach(function (cityData) {
-                    searchController.searchView.renderSearchResult(cityData, false, $('.degrees.active').data('identifier'));
-                });
-            });
-
-
             $('.sidebar-btn').on('click', function() {
                 //$('#gallery-holder').addClass('extend');
                 $('.sidebar').stop().toggle({
@@ -51,6 +33,7 @@ define([
                     //},
                     complete: function() {
                         $('.open-sb-btn').fadeIn('slow');
+                        $('input[name=cityname]').val("");
                         //$('.bxslider').bxSlider({slideWidth: $('#gallery-holder').width()});
                     }
                 });

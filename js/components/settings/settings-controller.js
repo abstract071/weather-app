@@ -28,10 +28,10 @@ define([
             this.setUpdateTimer();
         },
         setUpdateTimer: function () {
-            if (modernizr.localstorage && localStorage['citiesNames']) {
-                var citiesNames = JSON.parse(localStorage['citiesNames']);
-            }
             setInterval(function() {
+                if (modernizr.localstorage && localStorage['citiesNames']) {
+                    var citiesNames = JSON.parse(localStorage['citiesNames']);
+                }
                 emitter.trigger('updateSlides', citiesNames);
             }, 60000);
         }

@@ -51,6 +51,7 @@ define([
             $('input[name=cityname]').on('input', function() {
                 emitter.trigger('searchStateHasChanged');
             });
+
             $('.icon-add').on('click', function() {
                 emitter.trigger('addCityToCollection');
             });
