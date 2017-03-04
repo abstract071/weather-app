@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>The Weather Application</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/icons_font.css"/>
+    <link rel="stylesheet" href="css/ptsans_font.css"/>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/style_desktop.css"/>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"/>
+    <script src="js/prefixfree.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <button type="button" class="open-sb-btn icon-menu animated"></button>
+        </div>
+        <div class="sun-wrapper">
+            <canvas id="sun"></canvas>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en"></script>
+    <script data-main="js/main" src="js/libs/require.js"></script>
+</body>
+</html>

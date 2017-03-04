@@ -1,0 +1,24 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "If you wanna check this app, please, visit this [link](https://weatherapp-89fdd.firebaseapp.com/)",
+  "main": "main.js",
+  "scripts": {
+    "deploy": "npm run gh-pages",
+    "gh-pages": "gh-pages -d public -b gh-pages",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abstract071/weather-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abstract071/weather-app/issues"
+  },
+  "homepage": "https://github.com/abstract071/weather-app#readme",
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
