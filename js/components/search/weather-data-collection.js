@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 28.01.2015.
- */
 define([
     'vendor',
     './city-weather'
@@ -14,16 +11,13 @@ define([
 
     WeatherDataCollection = Class.extend({
         defaultOptions: {
-            //weatherDataArray: []
         },
         constructor: function (/*options*/) {
             this.weatherDataArray = [];
             this.searchResultWeatherData = [];
             this.initialize();
         },
-        initialize: function () {
-            //this.searchView = new SearchView({ rootHolder: '#wrapper' });
-        },
+        initialize: function () {},
         getCityData: function (cityName) {
             return _.find(this.weatherDataArray, { cityName: cityName });
         },
@@ -35,7 +29,6 @@ define([
         },
         addCityData: function (weather, isUpdate) {
             try {
-                //console.log(weather);
                 this.weatherDataArray.push(weather);
                 emitter.trigger('addCityData', weather);
             } catch (error) {

@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 04.01.2015.
- */
 define([
     'vendor',
     'text!components/settings/settings.tpl',
@@ -22,7 +19,6 @@ define([
         constructor: function (options) {
             this.options = _.extend({}, this.defaultOptions, options);
             this.tpl = _.template(settingsTemplate);
-            //BoardView.prototype = new Vendor.util.EventEmitter();
             this.initialize();
             this.render();
             this.addEventListeners();
@@ -34,14 +30,12 @@ define([
         },
         collectElements: function () {
             this.$holder = $(this.options.rootHolder);
-            //this.$setBoard = $(this.tpl());
         },
         render: function (){
             this.$holder.append(this.tpl());
         },
         addEventListeners: function() {
             $('.fahrenheit, .celsius').click(function(event) {
-                //console.log(event.target);
                 emitter.trigger('transformDegrees', event);
             });
         }

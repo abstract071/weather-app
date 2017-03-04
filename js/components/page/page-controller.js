@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 15.01.2015.
- */
 define([
     'vendor',
     'components/page/page-view',
@@ -50,8 +47,6 @@ define([
             var minEdge = Math.min.apply(undefined, arrMins);
             var maxEdge = Math.max.apply(undefined, arrMaxs);
             var maxRange = maxEdge - minEdge;
-            //console.log('Mins array: ' + arrMins);
-            //console.log('Maxs array: ' + arrMaxs);
 
             //Set corresponding width for white range
             $range.find('.range').width(function(index) {
@@ -66,7 +61,6 @@ define([
                 fullWidths.push(parseFloat($(this).css('margin-left')) + $(this).width());
 
             });
-            //console.log('Full max width: ' + Math.max.apply(undefined, fullWidths));
         }
 
     });

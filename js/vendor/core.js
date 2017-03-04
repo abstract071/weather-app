@@ -1,7 +1,4 @@
-/**
- * Created by Vladyslav_Mykhailenk on 12/25/2014.
- */
-define(['jquery', 'lodash', 'modernizr'],
+define(['jquery', 'lodash', 'modernizr', 'granim'],
     function ($, _, modernizr) {
         'use strict';
 
@@ -9,6 +6,7 @@ define(['jquery', 'lodash', 'modernizr'],
         return {
             $: $,
             _: _,
-            Modernizr: Modernizr
+            Modernizr: Modernizr,
+            Granim: Granim
         };
 });

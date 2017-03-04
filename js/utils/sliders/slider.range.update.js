@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 15.01.2015.
- */
 define([
     'vendor'
 ], function(Vendor) {

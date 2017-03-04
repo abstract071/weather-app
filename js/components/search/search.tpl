@@ -1,5 +1,5 @@
 <div class="sidebar-wrapper">
-    <div class="sidebar">
+    <div class="sidebar animated">
 
         <div class="form">
             <div class="search-form">

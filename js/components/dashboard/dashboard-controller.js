@@ -1,6 +1,3 @@
-/**
- * Created by Vladyslav_Mykhailenk on 1/6/2015.
- */
 define([
     'vendor',
     'components/dashboard/dashboard-view',
@@ -51,14 +48,9 @@ define([
         },
         addCityWeatherSlider: function(cityData) {
             var cityNameAttr = this.pageController.pageView.renderSearchResult(cityData, $('.degrees.active').data('identifier') || localStorage['typeOfDegrees'] || 'celsius');
-            //var self = this;
-            //setTimeout(function() {
-            //    self.pageController.addScrollbarSlider(cityData.cityName.replace(/\s+/g, ''), $('[data-city-name="' + cityNameAttr + '"]'));
-            //}, 100);
             this.pageController.addScrollbarSlider(cityData.cityName.replace(/\s+/g, ''), $('[data-city-name="' + cityNameAttr + '"]'));
             var bxslider = this.bxslider;
             if (bxslider.getSlideCount()) {
-                //this.currentSlideIndex = this.bxslider.getCurrentSlide();
                 bxslider.reloadSlider(this.reloadOptions(this.bxslider.getCurrentSlide()));
             } else {
                 bxslider.reloadSlider(this.reloadOptions(this.currentSlideIndex));
@@ -92,18 +84,6 @@ define([
         saveCurrentSlideIndex: function() {
             this.currentSlideIndex = this.bxslider.getCurrentSlide();
         },
-        //updateSlides: function(citiesData) {
-        //
-        //    var self = this,
-        //        currentSlideIndex = self.bxslider.getCurrentSlide();
-        //
-        //    this.removeAllSlides();
-        //
-        //    for (var i = 0; i < citiesData.length; i++) {
-        //        this.addCityWeatherSlider(citiesData[i]);
-        //    }
-        //
-        //},
         transformDegrees: function(event) {
             if (!$(event.target).hasClass('active')) {
                 $('.degrees').removeClass('active');

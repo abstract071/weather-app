@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 04.01.2015.
- */
 define([
     'vendor',
     'text!components/search/search.tpl',
@@ -27,11 +24,7 @@ define([
             this.initialize();
         },
         initialize: function () {
-            //this.collectElements();
-
-            //$(window).on("load",function(){
-                $("#myMCS").mCustomScrollbar({ scrollButtons: { enable: false } });
-            //});
+            $("#myMCS").mCustomScrollbar({ scrollButtons: { enable: false } });
 
             this.addEventListeners();
         },
@@ -54,6 +47,11 @@ define([
 
             $('.icon-add').on('click', function() {
                 emitter.trigger('addCityToCollection');
+            });
+
+            $('.sidebar-btn').on('click', function() {
+                $('.open-sb-btn').removeClass('fadeOut').addClass('fadeInWithDelay');
+                $('.sidebar').removeClass('slideInRight').addClass('slideOutRight');
             });
         }
     });

@@ -1,6 +1,3 @@
-/**
- * Created by Vladyslav_Mykhailenk on 1/6/2015.
- */
 define([
     'vendor',
     'components/settings/settings-view'
@@ -24,7 +21,6 @@ define([
         },
         initialize: function () {
             this.settingsView = new SettingsView({ rootHolder: '.sidebar' });
-            //emitter.on('transformDegrees', this.transformDegrees, this);
             this.setUpdateTimer();
         },
         setUpdateTimer: function () {

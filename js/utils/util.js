@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 29.12.2014.
- */
 define("utils/util", [
     'vendor/core'
 ], function (core) {
@@ -76,7 +73,6 @@ define("utils/util", [
         }
 
         this._listeners[name].forEach(function(obj) {
-            //console.log(obj.callback);
             obj.callback.apply(obj.ctx, argumentsArr);
         });
     };
@@ -86,7 +82,6 @@ define("utils/util", [
     };
 
     EventEmitter.prototype.on = function(name, callback, ctx) {
-        //console.log(this._listeners);
         ctx = ctx || {};
 
         var events = this._listeners[name] || (this._listeners[name] = []);

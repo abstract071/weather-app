@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 15.01.2015.
- */
 define([
     'vendor'
 ], function(Vendor) {
@@ -9,11 +6,6 @@ define([
     var $ = Vendor.$;
 
     var scrollbarSlider = function (cl, el) {
-        //scrollpane parts
-        //console.log(cl);
-
-        //$(el).find(".scroll-pane").addClass(cl);
-        //$(el).find(".scroll-content").addClass(cl);
         var scrollPane = $(el).find(".scroll-pane").addClass(cl),
             scrollContent = $(el).find(".scroll-content").addClass(cl);
 
@@ -84,17 +76,10 @@ define([
             resetValue();
             sizeScrollbar();
             reflowContent();
-            //scrollbar.width(scrollPane.width());
         });
 
         //init scrollbar size
         setTimeout(sizeScrollbar, 10);//safari wants a timeout
-    //};
-
-    //console.log(scrollSlider);
-    //scrollSlider('.some1');
-    //scrollSlider('.some2');
-
     };
 
     return scrollbarSlider;

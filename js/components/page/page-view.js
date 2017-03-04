@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 15.01.2015.
- */
 define([
     'vendor',
     'text!components/page/page.tpl',
@@ -47,9 +44,6 @@ define([
             this.setTime();
             return $(pageTpl).data('city-name');
         },
-        //removeSlides: function(cityName) {
-        //    emitter.trigger('removeSlides', cityName);
-        //},
         renderTemperatureRanges: function() {
             emitter.trigger('renderTemperatureRanges');
         }

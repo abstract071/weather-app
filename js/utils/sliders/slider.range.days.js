@@ -1,6 +1,3 @@
-/**
- * Created by Vlad on 14.01.2015.
- */
 define([
     'vendor'
 ], function(Vendor) {
@@ -19,14 +16,8 @@ define([
                     $( "#options-days" ).val( ui.value );
                 },
                 stop: function() {
-                    //console.log($('#options-days').val());
-                    //var $weekForecastItems = $('.bxslider > li.active .week-forecast li');
                     var $weekForecastBlocks = $('.bxslider .week-forecast');
-                    //console.log($weekForecastBlocks);
-                    //console.log($weekForecastBlocks.size());
-                    //console.log($weekForecastBlocks.eq($weekForecastBlocks.size()));
                     $weekForecastBlocks.each(function() {
-                        //console.log(this);
                         var $weekForecastItems = $(this).find('li');
                         for (var i = 0; i < $weekForecastItems.size(); i++) {
                             $weekForecastItems.eq(i).removeClass('hide-border-bottom');
